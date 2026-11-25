@@ -147,6 +147,7 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 const SWOOP = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1279.1 672.6" height="672.6" width="1279.1" fill="transparent" aria-hidden="true" focusable="false"><path stroke="rgb(255 255 255)" fill="none" d="M1158.6,48.9 c-52.5-29.5-110.3-48-168.8-61.2c-102-23.2-207-30.6-311.4-29.2c-53.1,0.7-106,3.6-158.9,8.6c-51,4.8-102,11.2-152.4,20 C317-4.2,267.1,5.5,217.7,17.5c-5.4,1.3-10.7,2.6-16,4c-0.7,0.2-1.2,0.9-1,1.6c0.2,0.6,0.8,1.1,1.4,1 c478.9-45.3,869.6,77.2,910.3,302c21.2,117-56.2,241.4-200.8,351.4c-0.6,0.4-0.7,1.3-0.3,1.9c0.4,0.6,1.2,0.7,1.8,0.3 c115.3-75.3,237.4-159.8,320.1-271.9c29.6-40.2,54.6-88.3,59-138.8C1300.4,174.7,1237.5,93.2,1158.6,48.9"/></svg>';
+const TAB = '<svg class="gradient-panel-tab" viewBox="0 0 1920 32.78" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path fill="#fff" d="M1186.86,11.13H.07L.09.04h1201.69l-10.26,9.37c-1.27,1.16-2.94,1.77-4.66,1.71"/><path class="gradient-panel-tab-left" d="M1146.13,32.77H0L.05,11.13h1170.43l-16.74,18.3c-1.92,2.19-4.7,3.41-7.61,3.34"/><path class="gradient-panel-tab-right" d="M1187.04,0h732.96v11.13h-749.56l7.54-7.79c2.47-2.26,5.72-3.46,9.06-3.34"/></svg>';
 function decorateSectionBackgrounds(main) {
   main.querySelectorAll(':scope > .section.blue-swoop').forEach((section) => {
     const bg = document.createElement('div');
@@ -159,6 +160,19 @@ function decorateSectionBackgrounds(main) {
     bg.append(img);
     bg.insertAdjacentHTML('beforeend', SWOOP);
     section.prepend(bg);
+  });
+
+  // Section style "green-gradient": the default content sits on an inset gradient panel
+  // with the source's tab-shaped top edge.
+  main.querySelectorAll(':scope > .section.green-gradient > .default-content-wrapper').forEach((wrapper) => {
+    const panel = document.createElement('div');
+    panel.className = 'gradient-panel';
+    panel.innerHTML = TAB;
+    const content = document.createElement('div');
+    content.className = 'gradient-panel-content';
+    content.append(...wrapper.childNodes);
+    panel.append(content);
+    wrapper.append(panel);
   });
 }
 

@@ -1,0 +1,19 @@
+{
+  "variantName": "hero",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": [
+    "Default: full-bleed photo (78vh) with a dark shade and the full-hero overlay PNG, white h1 at the bottom-left (home page).",
+    "compact: short page banner (~370px at 1280px), h1 near the top-left, photo on the left fading into a navy (#1e3263) swoop with sky-blue curved lines over the right half, drawn as an inline SVG instead of the overlay PNG."
+  ],
+  "contentPattern": [
+    { "cells": [{ "content": "image" }] },
+    { "cells": [{ "content": "h1 (optional text)" }] }
+  ],
+  "options": [
+    { "class": "compact", "label": "Compact" }
+  ],
+  "memberVariantIds": ["hero", "hero-compact"],
+  "usage": "Page-opening banner. Use the default on the home page; use Hero (compact) for interior page titles such as Who We Are.",
+  "reuseGuidance": "Row 1 holds the background picture, row 2 the heading. Add (compact) for the short interior banner with the navy swoop."
+}

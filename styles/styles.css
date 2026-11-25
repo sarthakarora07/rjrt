@@ -236,6 +236,58 @@ main > .section.blue-swoop > .default-content-wrapper p {
   line-height: 1.8;
 }
 
+/* section style: green-gradient (inset panel + tab edge, set up in scripts.js) */
+main > .section.green-gradient {
+  padding: 72px 0;
+}
+
+main > .section.green-gradient .gradient-panel {
+  position: relative;
+  background-image: linear-gradient(to right, var(--lime), var(--green));
+  color: var(--background-color);
+}
+
+main > .section.green-gradient .gradient-panel-tab {
+  position: absolute;
+  top: -9px;
+  left: 0;
+  width: 100%;
+  height: 32.78px;
+}
+
+main > .section.green-gradient .gradient-panel-tab-left {
+  fill: var(--green);
+}
+
+main > .section.green-gradient .gradient-panel-tab-right {
+  fill: var(--lime);
+}
+
+/* the source ends the panel with two 54px spacers after the text */
+main > .section.green-gradient .gradient-panel-content {
+  position: relative;
+  padding: 108px 72px 180px;
+}
+
+main > .section.green-gradient .gradient-panel-content h3 {
+  margin-bottom: 18px;
+  font-size: 28.134px;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+main > .section.green-gradient .gradient-panel-content p {
+  margin-bottom: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+@media (width < 900px) {
+  main > .section.green-gradient .gradient-panel-content {
+    padding: 72px 24px;
+  }
+}
+
 .section-bg {
   position: absolute;
   top: 0;

@@ -1,0 +1,20 @@
+{
+  "variantName": "columns",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": [
+    "Default: rows of equal columns side by side on desktop, stacked on mobile with image cells first.",
+    "text: two equal top-aligned text columns, large h2 on the left, paragraphs on the right.",
+    "media-text: rows of [text | image] or [image | text] in visual order; text cell has h2, a sky-blue (#00a1dc) rule from an authored <hr>, then paragraphs; the image fills its column (3:2) with a narrow vertical tab strip on the edge facing the text, green on odd rows and sky/navy on even rows. Stacks on mobile with the image first."
+  ],
+  "contentPattern": [
+    { "cells": [{ "content": "text or image" }, { "content": "text or image" }] }
+  ],
+  "options": [
+    { "class": "text", "label": "Text" },
+    { "class": "media-text", "label": "Media Text" }
+  ],
+  "memberVariantIds": ["columns", "columns-text", "columns-media-text"],
+  "usage": "Fixed side-by-side content pairs. Columns (text) for a heading beside body copy; Columns (media-text) for alternating text and photo rows.",
+  "reuseGuidance": "One row per pair, cells in visual order. For media-text, put an <hr> (---) between the h2 and the paragraphs in the text cell; the image cell holds only the picture."
+}

@@ -31,3 +31,103 @@
     order: unset;
   }
 }
+
+/* text: two equal text columns, large heading left, paragraphs right, top aligned */
+.columns.text {
+  padding-top: 72px;
+}
+
+.columns.text h2,
+.columns.media-text h2 {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+/* body copy on the source is light 18/31.5 with 18px after each paragraph */
+.columns.text p,
+.columns.media-text p {
+  margin-bottom: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* media-text: rows of [text | image] or [image | text] in visual order */
+.columns.media-text {
+  padding: 144px 0;
+}
+
+.columns.media-text > div {
+  gap: 36px;
+}
+
+.columns.media-text > div + div {
+  margin-top: 72px;
+}
+
+/* sky-blue rule under the heading (decoration, not authored) */
+.columns.media-text h2::after {
+  content: '';
+  display: block;
+  height: 2px;
+  margin: 12px 0 24px;
+  background-color: var(--blue-300);
+}
+
+
+.columns.media-text > div > .columns-img-col {
+  position: relative;
+  padding-left: 20px;
+}
+
+.columns.media-text > div > .columns-img-col img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.columns.media-text .columns-tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  transform: scaleX(-1);
+}
+
+/* the tab sits on the image's inner edge, facing the text */
+.columns.media-text > div.columns-image-left > .columns-img-col {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+.columns.media-text > div.columns-image-left .columns-tab {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+/* green on odd rows, sky / navy on even rows */
+.columns.media-text .columns-tab path {
+  fill: var(--green);
+}
+
+.columns.media-text > div:nth-child(even) .columns-tab-upper {
+  fill: var(--blue-300);
+}
+
+.columns.media-text > div:nth-child(even) .columns-tab-lower {
+  fill: var(--blue);
+}
+
+@media (width >= 900px) {
+  .columns.text > div,
+  .columns.media-text > div {
+    align-items: flex-start;
+    gap: 54px;
+  }
+
+  /* source: two 568px columns with a 36px gap */
+  .columns.text > div {
+    gap: 36px;
+  }
+}
