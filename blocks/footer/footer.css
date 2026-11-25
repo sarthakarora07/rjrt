@@ -1,6 +1,11 @@
 footer .footer {
-  padding: 54px 0 216px;
+  padding: 54px 0;
   background-color: var(--blue);
+}
+
+/* the home page (with the corrective-statements bar) has extra space under the footer */
+body.home footer .footer {
+  padding-bottom: 216px;
 }
 
 /* the source colours the text elements, not the footer (its hidden logo label stays black) */

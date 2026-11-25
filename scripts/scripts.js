@@ -161,9 +161,14 @@ function decorateSectionBackgrounds(main) {
     bg.insertAdjacentHTML('beforeend', SWOOP);
     section.prepend(bg);
   });
+}
 
-  // Section style "green-gradient": the default content sits on an inset gradient panel
-  // with the source's tab-shaped top edge.
+/**
+ * Section style "green-gradient": the default content sits on an inset gradient panel with the
+ * source's tab-shaped top edge. Runs after decorateBlocks, so the panel isn't taken for a block.
+ * @param {Element} main The main element
+ */
+function decorateGradientPanels(main) {
   main.querySelectorAll(':scope > .section.green-gradient > .default-content-wrapper').forEach((wrapper) => {
     const panel = document.createElement('div');
     panel.className = 'gradient-panel';
@@ -187,6 +192,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateSectionBackgrounds(main);
   decorateBlocks(main);
+  decorateGradientPanels(main);
   decorateButtons(main);
 }
 
@@ -197,6 +203,8 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  // rjrt.com shows the corrective-statements bar and the footer space under it on the home only
+  if (/^\/(content\/)?(index)?$/.test(window.location.pathname)) document.body.classList.add('home');
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

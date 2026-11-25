@@ -88,7 +88,12 @@ header {
 }
 
 @media (width >= 900px) {
+  /* other pages have no toaster bar: banner 164.266 - 36 overlap */
   header {
+    min-height: 128.266px;
+  }
+
+  body.home header {
     min-height: 156.766px;
   }
 }

@@ -202,5 +202,7 @@ export default async function decorate(block) {
   });
 
   banner.append(white, el('div', 'header-stripe', STRIPE));
-  block.append(bar, full, banner);
+  // the source shows the corrective-statements bar on the home page only
+  if (document.body.classList.contains('home')) block.append(bar, full, banner);
+  else block.append(banner);
 }
