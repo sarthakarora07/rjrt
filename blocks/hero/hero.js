@@ -7,8 +7,8 @@ function buildSwoop() {
   const id = `hero-swoop-gradient-${swoopId}`;
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', '1150 0 2690 380');
-  svg.setAttribute('preserveAspectRatio', 'xMinYMid slice');
+  svg.setAttribute('viewBox', '0 0 3840 380');
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
   svg.setAttribute('aria-hidden', 'true');
   svg.setAttribute('focusable', 'false');
   svg.innerHTML = `<linearGradient id="${id}" x1="1615.932" x2="3840" y1="190" y2="190" gradientUnits="userSpaceOnUse">`
